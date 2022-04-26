@@ -74,16 +74,16 @@ public class FinalTask1Steps {
 
     }
 
-/*
+
     @And("the data is validated")
     public void theDataIsValidated() {
 
-       WebElement savedAddress = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address"));
-       savedAddress.getText(contains.("Jerozolimskie"));
-        Assertions.assertTrue();
+        WebElement savedAddress = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address[contains(text(),'Tom Waits')]"));
+        savedAddress.getText();
+        //Assertions.assertTrue(savedAddress.contains);
 
+    }
 
-    }*/
 
     @And("the address is removed")
     public void theAddressIsRemoved() {

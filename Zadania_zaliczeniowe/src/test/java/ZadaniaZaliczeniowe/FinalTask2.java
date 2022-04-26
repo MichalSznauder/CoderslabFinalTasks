@@ -123,6 +123,16 @@ public class FinalTask2 {
         screenshot.getScreenshotAs(OutputType.FILE);
 
 
+        driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a[2]/span")).click();
+
+        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div/div/a[3]/span")).click();
+
+       WebElement paymentStatus = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/table/tbody/tr[1]/td[4]/span"));
+       paymentStatus.getText();
+
+
+
+
     }
 
 
