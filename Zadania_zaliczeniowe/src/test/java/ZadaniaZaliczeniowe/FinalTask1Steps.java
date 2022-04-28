@@ -25,9 +25,14 @@ public class FinalTask1Steps {
                 "src/main/resources/drivers/chromedriver.exe");
 
         driver = new ChromeDriver();
+
+
+        //otwieranie webpage
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://mystore-testlab.coderslab.pl/index.php?controller=authentication&back=my-account");
+
+        //logowanie
         WebElement emailInput = driver.findElement(By.name("email"));
         emailInput.sendKeys("znqocowprtbwttvupo@nvhrw.com");
         WebElement passwordInput = driver.findElement(By.name("password"));

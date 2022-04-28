@@ -26,13 +26,15 @@ public class FinalTask2 {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://mystore-testlab.coderslab.pl/index.php");
-        driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a/span")).click();
 
+        //otwieranie strony www
+        driver.get("https://mystore-testlab.coderslab.pl/index.php");
+
+        //logowanie
+        driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a/span")).click();
 
         WebElement emailInput = driver.findElement(By.name("email"));
         emailInput.sendKeys(userEmail);
-
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebElement passwordInput = driver.findElement(By.name("password"));
@@ -40,6 +42,14 @@ public class FinalTask2 {
 
         driver.findElement(By.id("submit-login")).click();
 
+
+
+        //przycisk 'clothes'
+
+        driver.findElement(By.cssSelector("#category-3 > a")).click();
+
+        //wybieranie produktu
+        driver.findElement(By.cssSelector("article.product-miniature:nth-child(2) > div:nth-child(1) > div:nth-child(2) > h2:nth-child(1) > a:nth-child(1)")).click();
 
 
         // wyliczanie, czy rabat wynosi 20% poprzez try/catch
@@ -60,26 +70,28 @@ public class FinalTask2 {
         }
         */
 
-        driver.findElement(By.cssSelector("#category-3 > a")).click();
 
 
-        driver.findElement(By.cssSelector("article.product-miniature:nth-child(2) > div:nth-child(1) > div:nth-child(2) > h2:nth-child(1) > a:nth-child(1)")).click();
 
+        //wybieranie rozmiaru przez 'select by index'
         WebElement sizeDropdown = driver.findElement(By.id("group_1"));
         Select sizeSelect = new Select(sizeDropdown);
         sizeSelect.selectByIndex(1);
 
+
+        // wybieranie ilosci
         WebElement quantityField = driver.findElement(By.id("quantity_wanted"));
         quantityField.clear();
         quantityField.sendKeys("5");
 
 
-
+        //dodawanie do koszyka
         driver.findElement(By.xpath("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[2]/form/div[2]/div/div[2]/button")).click();
 
-
+        //przycisk 'proceed to checkout'
         driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a")).click();
 
+        // ponownie przycisk 'checkout'
         driver.findElement(By.xpath("/html/body/main/section/div/div/section/div/div[2]/div[1]/div[2]/div/a")).click();
 
 
@@ -88,6 +100,8 @@ public class FinalTask2 {
         //Assertions.assertTrue();
 
 
+
+        //wpisywanie danych adresowych
         driver.findElement(By.name("address1")).sendKeys("Jerozolimskie");
         driver.findElement(By.name("postcode")).sendKeys("01-591");
         driver.findElement(By.name("city")).sendKeys("Warsaw");
@@ -119,6 +133,8 @@ public class FinalTask2 {
 
         driver.findElement(By.xpath("/html/body/section/div/section/div/div[1]/section[4]/div/div[3]/div[1]/button")).click();
 
+
+        //screenshot
         WebElement screenshot = driver.findElement(By.id("content"));
         screenshot.getScreenshotAs(OutputType.FILE);
 
@@ -127,6 +143,7 @@ public class FinalTask2 {
 
         driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div/div/a[3]/span")).click();
 
+        //sprawdzanie payment status
        WebElement paymentStatus = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/table/tbody/tr[1]/td[4]/span"));
        paymentStatus.getText();
 
