@@ -84,8 +84,8 @@ public class FinalTask1Steps {
     public void theDataIsValidated() {
 
         WebElement savedAddress = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address[contains(text(),'Tom Waits')]"));
-        savedAddress.getText();
-        //Assertions.assertTrue(savedAddress.contains);
+        String text = savedAddress.getText();
+        Assertions.assertTrue(text.contains("Jerozolimskie"));
 
     }
 

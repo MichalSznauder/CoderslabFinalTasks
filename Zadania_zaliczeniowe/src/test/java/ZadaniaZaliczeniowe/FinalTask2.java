@@ -134,10 +134,24 @@ public class FinalTask2 {
         driver.findElement(By.xpath("/html/body/section/div/section/div/div[1]/section[4]/div/div[3]/div[1]/button")).click();
 
 
-        //screenshot
+        //screenshot 1 metoda
         WebElement screenshot = driver.findElement(By.id("content"));
         screenshot.getScreenshotAs(OutputType.FILE);
 
+       // File dest = new File(System.getProperty("user.dir") +    "/screenshots/elementLogo.png");
+
+        //try {
+         //   FileHandler.copy(source, dest);
+      //  } catch (IOException exception) {
+          //  exception.printStackTrace();
+
+/*    screenshot 2 metoda
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File file = screenshot.getScreenshotAs(OutputType.FILE);
+        File localizationFile = new File("screenshot.jpg");
+        FileHandler.copy(file, localizationFile);
+
+*/
 
         driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a[2]/span")).click();
 
@@ -148,12 +162,6 @@ public class FinalTask2 {
        paymentStatus.getText();
 
 
-
-
     }
-
-
-
-
 
 }
